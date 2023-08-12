@@ -1,10 +1,17 @@
-import { Home } from "./pages";
+import { Outlet } from "react-router-dom"
+
+import { LeftBar, Navbar, RightBar } from "./components"
 
 const App = () => {
   return (
-    <div>
-      <Home />
-    </div>
+    <>
+      <Navbar />
+      <div style={{ display: "flex" }}>
+        <LeftBar />
+        <Outlet />
+        <RightBar />
+      </div>
+    </>
   )
 }
 
