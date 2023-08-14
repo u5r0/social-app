@@ -1,14 +1,17 @@
 import { Outlet } from "react-router-dom"
 
+import './App.scss'
 import { LeftBar, Navbar, RightBar } from "./components"
 
 const App = () => {
   return (
     <>
       <Navbar />
-      <div style={{ display: "flex" }}>
+      <div className="container">
         <LeftBar />
-        <Outlet />
+        <main>
+          <Outlet />
+        </main>
         <RightBar />
       </div>
     </>
