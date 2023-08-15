@@ -1,64 +1,69 @@
 .navbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: .8em 1.5em;
-  height: 4rem;
-  background-color: white;
-  border-bottom: 1px solid lightgray;
-  position: sticky;
-  top: 0;
-  
-  .left {
+  @include themify($themes) {
     display: flex;
     align-items: center;
-    gap: 1.9em;
-
-    span {
-      font-weight: bold;
-      font-size: 1.5rem;
-      color: darkblue;
-    }
-    .search {
+    justify-content: space-between;
+    padding: .8em 1.5em;
+    height: 4rem;
+    background-color: themed("bg");
+    border-bottom: 1px solid themed("border");
+    position: sticky;
+    top: 0;
+    color:themed("textColor");
+    z-index: 999;
+    
+    .left {
       display: flex;
       align-items: center;
-      gap: .6em;
-      border: 1px solid lightgray;
-      border-radius: 5px;
-      padding: .4em;
+      gap: 1.9em;
 
-      input {
-        width: 28rem;
-        border: none;
-        background-color: transparent;
+      span {
+        font-weight: bold;
+        font-size: 1.5rem;
+        color: themed("logo");
+      }
+      .search {
+        display: flex;
+        align-items: center;
+        gap: .6em;
+        border: 1px solid themed("border");
+        border-radius: 5px;
+        padding: .4em;
 
-        &:focus {
-          outline: none;
+        input {
+          width: 28rem;
+          border: none;
+          background-color: transparent;
+          color: themed("textColor");
+
+          &:focus {
+            outline: none;
+          }
         }
       }
     }
-  }
 
-  .right {
-    display: flex;
-    align-items: center;
-    gap: 1.2em;
-
-    .user {
+    .right {
       display: flex;
       align-items: center;
-      gap: .6em;
-      font-weight: 500;
+      gap: 1.2em;
 
-      img {
-        width: 2em;
-        height: 2em;
-        border: 2px solid rgb(255, 0, 98);
-        border-radius: 50%;
-        object-fit: cover;
-      }
-      span {
-        font-weight: bold;
+      .user {
+        display: flex;
+        align-items: center;
+        gap: .6em;
+        font-weight: 500;
+
+        img {
+          width: 2em;
+          height: 2em;
+          border: 2px solid rgb(255, 0, 98);
+          border-radius: 50%;
+          object-fit: cover;
+        }
+        span {
+          font-weight: bold;
+        }
       }
     }
   }

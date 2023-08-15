@@ -9,19 +9,29 @@ import {
   MdOutlineNotifications
 } from 'react-icons/md'
 import { Link } from "react-router-dom"
+import { useAtomValue } from 'jotai'
 
 import './navbar.scss'
 import { Avatar } from '../../assets'
+import { initialTheme } from '../../atoms/themeAtom'
 
-const Navbar = () => {
+const Navbar = ({ toggleTheme }) => {
+  const isDarkTheme = useAtomValue(initialTheme)
+
   return (
     <div className="navbar">
       <div className="left">
         <Link to='/' style={{ textDecoration: 'none' }}>
-          <span>devsocial</span>
+          <span>dev.social</span>
         </Link>
         <MdOutlineHome size={22} />
-        <MdOutlineDarkMode size={22} />
+        
+        {isDarkTheme ? (
+          <MdOutlineWbSunny size={22} onClick={toggleTheme} />
+        ) : (
+          <MdOutlineDarkMode size={22} onClick={toggleTheme} />
+        )}
+
         <MdGridView size={22} />
 
         <div className="search">
